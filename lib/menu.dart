@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
+
   final String npm = "2506620293";
-  final String nama = "Zoya";
+  final String nama = "Aqila Zoya Yuwono";
   final String kelas = "PBP D";
 
   final List<ItemHomepage> items = [
-    ItemHomepage("Lihat Proyek", Icons.folder),
-    ItemHomepage("Tambah Proyek", Icons.add_circle),
-    ItemHomepage("Logout", Icons.logout),
+    ItemHomepage("Lihat Proyek", Icons.folder, Colors.blue),
+    ItemHomepage("Tambah Proyek", Icons.add_circle, Colors.green),
+    ItemHomepage("Logout", Icons.logout, Colors.deepOrange),
   ];
 
   @override
   Widget build(BuildContext context) {
-    // Scaffold menyediakan struktur visual dasar halaman.
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -79,7 +79,7 @@ class MyHomePage extends StatelessWidget {
 }
 
 class InfoCard extends StatelessWidget {
-  // Kartu informasi yang menampilkan judul (title) dan isi (content).
+  // Kartu informasi yang menampilkan judul dan isi.
   final String title;
   final String content;
 
@@ -88,18 +88,15 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      // Memberikan efek bayangan kartu elevasi 2 unit.
       elevation: 2.0,
       child: Container(
-        // Menyesuaikan lebar kartu dengan proporsi layar.
         width: MediaQuery.of(context).size.width / 3.5,
         padding: const EdgeInsets.all(16.0),
-        // Menyusun teks title dan content secara vertikal.
         child: Column(
           children: [
             Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8.0),
-            Text(content),
+            Text(content, textAlign: TextAlign.center),
           ],
         ),
       ),
@@ -110,8 +107,9 @@ class InfoCard extends StatelessWidget {
 class ItemHomepage {
   final String name;
   final IconData icon;
+  final Color color;
 
-  ItemHomepage(this.name, this.icon);
+  ItemHomepage(this.name, this.icon, this.color);
 }
 
 class ItemCard extends StatelessWidget {
@@ -122,13 +120,12 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      // Menggunakan warna sekunder dari skema tema aplikasi.
-      color: Theme.of(context).colorScheme.secondary,
+      // Menggunakan warna sesuai dengan masing-masing item.
+      color: item.color,
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
-        // Aksi ketika kartu ditekan oleh pengguna.
+        // Aksi ketika kartu ditekan.
         onTap: () {
-          // Menampilkan SnackBar dengan pesan interaktif.
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
@@ -148,7 +145,10 @@ class ItemCard extends StatelessWidget {
                 Text(
                   item.name,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
