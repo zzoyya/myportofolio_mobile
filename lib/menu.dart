@@ -29,7 +29,6 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Menampilkan 3 kartu informasi secara horizontal.
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -41,7 +40,6 @@ class MyHomePage extends StatelessWidget {
 
             const SizedBox(height: 16.0),
 
-            // Bagian pesan sambutan dan tombol menu.
             Center(
               child: Column(
                 children: [
@@ -56,7 +54,6 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
 
-                  // Grid untuk menampilkan 3 tombol menu.
                   GridView.count(
                     primary: true,
                     padding: const EdgeInsets.all(20),
@@ -79,7 +76,6 @@ class MyHomePage extends StatelessWidget {
 }
 
 class InfoCard extends StatelessWidget {
-  // Kartu informasi yang menampilkan judul dan isi.
   final String title;
   final String content;
 
@@ -120,11 +116,9 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      // Menggunakan warna sesuai dengan masing-masing item.
       color: item.color,
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
-        // Aksi ketika kartu ditekan.
         onTap: () {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
