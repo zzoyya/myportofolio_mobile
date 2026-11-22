@@ -33,3 +33,17 @@ samples, guidance on mobile development, and a full API reference.
 6. Hot reload adalah fitur Flutter yang memungkinkan perubahan kode langsung terlihat tanpa harus menjalankan ulang aplikasi dari awal. Biasanya fitur ini tidak menghilangkan state yang sedang berjalan. Sementara itu, hot restart akan menjalankan ulang aplikasi dari awal sehingga state sebelumnya direset. Hot reload cocok untuk perubahan tampilan atau teks, sedangkan hot restart diperlukan ketika ada perubahan yang memengaruhi inisialisasi aplikasi atau state awal. Full restart biasanya diperlukan ketika perubahan tidak bisa diterapkan melalui hot reload maupun hot restart, misalnya perubahan konfigurasi native atau plugin tertentu.
 
 Dalam pengerjaan tugas ini, saya menggunakan AI sebagai alat bantu untuk memahami konsep Flutter, membantu menyusun dan menyesuaikan kode program, memberikan referensi dan saran penyesuaian kode pada main.dart dan menu.dart. Seluruh hasil implementasi tetap saya periksa dan jalankan secara mandiri untuk memastikan aplikasi berfungsi sesuai dengan ketentuan tugas.
+
+---
+
+### pertanyaan reflektif tugas individu 8
+
+1. Navigator.push() digunakan untuk membuka halaman baru tanpa menghapus halaman sebelumnya dari navigation stack. Navigator.pushReplacement() digunakan untuk mengganti halaman yang sedang dibuka dengan halaman baru, sedangkan Navigator.pop() digunakan untuk menutup halaman saat ini dan kembali ke halaman sebelumnya. Pada aplikasi ini, Navigator.push() digunakan untuk membuka Education Form dari kartu aksi maupun Drawer. Sementara itu, opsi Home menggunakan Navigator.pushReplacement() agar pengguna dapat kembali ke halaman utama.
+
+2. Scaffold digunakan sebagai struktur utama halaman yang menampung AppBar, Drawer, dan body. AppBar berfungsi menampilkan judul halaman, sedangkan Drawer menyediakan navigasi ke halaman lain. Penggunaan komponen tersebut membuat tampilan setiap halaman lebih konsisten. Contohnya, warna indigo digunakan pada AppBar halaman utama, Project Form, dan Education Form sehingga tampilan aplikasi memiliki tema yang seragam.
+
+3. Saya menggunakan Column untuk menyusun input formulir secara vertikal dan Padding untuk memberikan jarak antarinput agar tampilannya lebih rapi. SingleChildScrollView digunakan agar seluruh formulir tetap dapat diakses dengan menggulir layar, terutama ketika ukuran layar kecil atau keyboard sedang ditampilkan. Dengan begitu, pengguna tetap dapat mengakses tombol Save tanpa kesulitan.
+
+4. GlobalKey FormState digunakan untuk mengakses dan mengelola kondisi formulir. Validator berfungsi memeriksa apakah nilai yang dimasukkan sudah sesuai dengan aturan yang ditentukan, sedangkan validate() digunakan untuk menjalankan seluruh validasi ketika tombol Save ditekan. Contohnya, nama institusi yang kosong atau hanya berisi spasi akan ditolak. Pemilihan jenis input atau keyboard saja belum cukup karena pengguna masih dapat memasukkan nilai yang tidak sesuai, sehingga tetap diperlukan validasi untuk memastikan data benar.
+
+Dalam pengerjaan Tugas 8, saya menggunakan ChatGPT sebagai alat bantu untuk memahami implementasi Flutter, menyusun Education Form, mengatur navigasi menggunakan Navigator, serta menerapkan validasi input dan dialog ringkasan. AI juga membantu menjelaskan error dan memberikan saran perbaikan kode. Seluruh implementasi kemudian saya sesuaikan dengan struktur proyek yang sudah ada dan saya uji secara langsung menggunakan aplikasi Flutter.
